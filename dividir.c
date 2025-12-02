@@ -1,11 +1,39 @@
-#include <stdio.h>
 
-int dividir(int a, int b) {
-    if (b == 0) {
-        printf("Erro: divisão por zero!\n");
-        return 0;
+int dividir(int dividendo,int divisor;) {
+    int quociente = 0, resto;
+
+    if (divisor == 0) {
+        return 1;
     }
-    return a / b;
 
-    
+    int sinalQuociente = 1;
+    if ((dividendo < 0 && divisor > 0) || (dividendo > 0 && divisor < 0)) {
+        sinalQuociente = -1;
+    }
+
+
+    while (dividendo >= divisor) {
+        dividendo -= divisor;
+        quociente++;
+    }
+
+    int resultado = 0;
+    int i = 0;
+    if (sinalQuociente == -1) {
+        while (i < quociente) {
+            resultado--;
+            i++;
+        }
+    } else {
+        while (i < quociente) {
+            resultado++;
+            i++;
+        }
+    }
+
+    resto = dividendo;
+
+    return resultado;
 }
+
+
